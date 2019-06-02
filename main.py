@@ -4,7 +4,7 @@ import pygame, sys
 from pygame.locals import *
 from entrega import *
 
-SIZE 				= WIDTH, HEIGHT	= 800, 600
+SIZE 				= WIDTH, HEIGHT	= 400, 200
 MAX_SPEED			= 10
 GOLDFISH, OCEANBLUE	= Color(243, 134, 48), Color(28, 107, 160)
 MAX_DISTANCE		= 100
@@ -31,6 +31,6 @@ while True:
 	pygame.time.delay(29)
 
 	for event in pygame.event.get():
-		if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE): # Se cierra el programa
+		if event.type == QUIT or (event.type == KEYDOWN ):# and event.key == K_ESCAPE): # Se cierra el programa
 			pygame.quit()
 			sys.exit()
