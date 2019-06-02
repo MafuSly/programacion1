@@ -8,7 +8,7 @@ SIZE 				= WIDTH, HEIGHT	= 400, 200
 MAX_SPEED			= 10
 GOLDFISH, OCEANBLUE	= Color(243, 134, 48), Color(28, 107, 160)
 MAX_DISTANCE		= 100
-N					= 100
+N					= 5
 
 pygame.init()
 screen = pygame.display.set_mode(SIZE)
@@ -17,12 +17,13 @@ while True:
 	screen.fill(OCEANBLUE)
 	for i in range(len(boids)):
 		close		= vecindad(i, boids, MAX_DISTANCE)
+
 		boids[i]	= moveCloser(boids[i], close) # COHESION
 		boids[i]	= moveWith(boids[i], close) # ALINEAMIENTO
 		boids[i]	= moveAway(boids[i], close, 20) # SEPARATION
 
 		boids[i] = corregir(boids[i], WIDTH, HEIGHT)
-		boids[i] = move(boids[i], MAX_SPEED) # MOVER
+		boids[i] = mover(boids[i], MAX_SPEED) # MOVER
 		try:
 			pygame.draw.circle(screen, GOLDFISH, [int(boids[i][0][0]), int(boids[i][0][1])], 3, 0)
 		except:

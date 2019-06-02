@@ -1,5 +1,6 @@
 import random
 import math
+from movimientos import *
 from logger import *
 
 def generarCardumen(numero, largo, alto, velocidad=10):
@@ -19,20 +20,12 @@ def generarCardumen(numero, largo, alto, velocidad=10):
 def distancia(i, j):
 	return i*j
 
-def corregir(boid, width, height, border=25):
-	return boid
-
-def moveCloser(fish, boids): # COHESION
+def moveCloser(fish, vecinos): # COHESION
 	return fish
 
-def moveWith(fish, boids): # ALINEAMIENTO
+def moveWith(fish, vecinos): # ALINEAMIENTO
 	return fish
 
-def moveAway(fish, boids, min_dist=20): # SEPARATION
+def moveAway(fish, vecinos, min_dist=20): # SEPARATION
 	return fish
 
-def move(fish, max_speed):
-	return fish
-
-def vecindad(pez_i, boids, max_distance):
-	return boids
