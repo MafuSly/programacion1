@@ -12,7 +12,7 @@ N					= 100
 
 pygame.init()
 screen = pygame.display.set_mode(SIZE)
-boids = generarCardumen(N, WIDTH, HEIGHT, 10)
+boids = generarCardumen(N, WIDTH, HEIGHT , 10 )
 while True:
 	screen.fill(OCEANBLUE)
 	for i in range(len(boids)):

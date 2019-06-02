@@ -1,18 +1,20 @@
 import random
 import math
+from logger import *
 
-def generarCardumen(n, w, h, speed=10):
-	boids = []
-	for i in range(n):
-		x, y		= random.randint(1, w), random.randint(1, h)
+def generarCardumen(numero, largo, alto, velocidad=10):
+	cardumen = []
+	for i in range(numero):
+		x, y		= random.randint(1, largo), random.randint(1, alto)
 		course		= random.uniform(-1, 1)
-		vx, vy		= random.randint(1, speed)/speed, random.randint(1, speed)/speed
-		boids.append(
-			[
+		vx, vy		= random.randint(1, velocidad)/velocidad, random.randint(1, velocidad)/velocidad
+		pez = [
 				[x, y],		# 0 [0, 1]
 				[vx, vy],	# 1 [0, 1]
-			])
-	return boids
+		]
+		logPez( pez )
+		cardumen.append(pez)
+	return cardumen
 
 def distancia(i, j):
 	return i*j
