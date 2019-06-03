@@ -1,8 +1,9 @@
 from logger import *
-def mover(pez, maxima_velocidad):
+import random
+def mover(pez, MAX_SPEED  = 10):
     # TODO ver que hacer con la velocidad ?
-    pez[0][0] = posX(pez) + pez[1][0]
-    pez[0][1] = posY(pez) + pez[1][1]
+    pez[0][0] = posX(pez) + velX(pez)
+    pez[0][1] = posY(pez) + velY(pez)
     return pez
 
 
@@ -27,4 +28,6 @@ def vecindad(pez_i, boids, max_distance):
             if(posX(otroPez) > x_inf and posX(otroPez) < x_sup and posY(otroPez) > y_inf and posY(otroPez) < y_sup):
                 vecinos.append(otroPez)
     return vecinos
+
+
 

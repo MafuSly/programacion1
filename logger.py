@@ -2,7 +2,9 @@ def log(mensaje):
     print("::" + mensaje)
 
 def logPez(pez):
-    print(" Ejes X=[" +str(posX(pez))+ "] Y=[" +str(pez[0][1])+ "]:: Velocidad X=["+str(pez[1][0])+"] Y=["+str(pez[1][1])+"]")
+    print(" Ejes X=[" +str(posX(pez))+ "] Y=[" +str(posY(pez))+ "]:: Velocidad X=["+str(velX(pez))+"] Y=["+str(velY(pez))+"]")
+
+
 
 
 def posX(pez):
@@ -10,3 +12,11 @@ def posX(pez):
 
 def posY(pez):
     return pez[0][1]
+
+def velX(pez):
+    return pez[1][0]
+
+def velY(pez):
+    return pez[1][1]
+
+

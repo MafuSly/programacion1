@@ -4,15 +4,15 @@ import pygame, sys
 from pygame.locals import *
 from entrega import *
 
-SIZE 				= WIDTH, HEIGHT	= 400, 200
+SIZE 				= WIDTH, HEIGHT	= 800, 600
 MAX_SPEED			= 10
 GOLDFISH, OCEANBLUE	= Color(243, 134, 48), Color(28, 107, 160)
 MAX_DISTANCE		= 100
-N					= 5
+N					= 100
 
 pygame.init()
 screen = pygame.display.set_mode(SIZE)
-boids = generarCardumen(N, WIDTH, HEIGHT , 10 )
+boids = generarCardumen(N, WIDTH, HEIGHT , MAX_SPEED)
 while True:
 	screen.fill(OCEANBLUE)
 	for i in range(len(boids)):
@@ -32,6 +32,6 @@ while True:
 	pygame.time.delay(29)
 
 	for event in pygame.event.get():
-		if event.type == QUIT or (event.type == KEYDOWN ):# and event.key == K_ESCAPE): # Se cierra el programa
+		if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE): # Se cierra el programa
 			pygame.quit()
 			sys.exit()
