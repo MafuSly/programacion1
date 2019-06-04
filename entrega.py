@@ -18,8 +18,7 @@ def generarCardumen(numero, largo, alto, velocidad=10):
 		cardumen.append(pez)
 	return cardumen
 
-def distancia(i, j):
-	return i*j
+
 
 
 

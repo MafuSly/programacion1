@@ -6,7 +6,7 @@ from entrega import *
 
 SIZE 				= WIDTH, HEIGHT	= 800, 600
 MAX_SPEED			= 10
-GOLDFISH, OCEANBLUE	= Color(243, 134, 48), Color(28, 107, 160)
+GOLDFISH, OCEANBLUE	= Color (243, 134, 48), Color (28, 107, 160)
 MAX_DISTANCE		= 100
 N					= 100
 

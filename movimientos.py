@@ -32,7 +32,7 @@ def vecindad(pez_i, boids, max_distance):
 
 
 def moveCerca(fish, vecinos):
-    if len(vecinos) < 1:
+    if len(vecinos) > 1:
 
         avgX = 0
         avgY = 0
