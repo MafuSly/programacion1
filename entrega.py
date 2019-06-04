@@ -2,6 +2,7 @@ import random
 import math
 from movimientos import *
 from logger import *
+from distancia import *
 
 def generarCardumen(numero, largo, alto, velocidad=10):
 	cardumen = []
@@ -20,8 +21,7 @@ def generarCardumen(numero, largo, alto, velocidad=10):
 def distancia(i, j):
 	return i*j
 
-def moveCloser(fish, vecinos): # COHESION
-	return fish
+
 
 def moveWith(fish, vecinos): # ALINEAMIENTO
 	return fish

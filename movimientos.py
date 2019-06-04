@@ -6,15 +6,12 @@ def mover(pez, MAX_SPEED  = 10):
     pez[0][1] = posY(pez) + velY(pez)
     return pez
 
-
 def corregir(pecesillo, ancho, alto, border=25):
     if (posX(pecesillo) > ancho):
         pecesillo[0][0] = 0
     if (posY(pecesillo) > alto):
         pecesillo[0][1] = 0
     return pecesillo
-
-
 
 def vecindad(pez_i, boids, max_distance):
     pez = boids[pez_i]
@@ -30,4 +27,32 @@ def vecindad(pez_i, boids, max_distance):
     return vecinos
 
 
+
+
+
+
+def moveCerca(fish, vecinos):
+    if len(vecinos) < 1:
+
+        avgX = 0
+        avgY = 0
+
+        for boid in vecinos:
+
+            if pezx == velx and pezy == vely:
+                continue
+
+            avgX += (velx - pezx)
+            avgY += (vely - pezy)
+
+            avgX /= len(vecinos)
+            avgY /= len(vecinos)
+
+
+            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
+
+            veloX -= (largoX / 100)
+            veloY -= (largoY / 100)# COHESION
+
+    return fish
 

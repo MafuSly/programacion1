@@ -18,7 +18,7 @@ while True:
 	for i in range(len(boids)):
 		close		= vecindad(i, boids, MAX_DISTANCE)
 
-		boids[i]	= moveCloser(boids[i], close) # COHESION
+		boids[i]	= moveCerca(boids[i], close) # COHESION
 		boids[i]	= moveWith(boids[i], close) # ALINEAMIENTO
 		boids[i]	= moveAway(boids[i], close, 20) # SEPARATION
 
