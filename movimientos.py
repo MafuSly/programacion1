@@ -27,32 +27,40 @@ def vecindad(pez_i, boids, max_distance):
     return vecinos
 
 
-
-
-
-
-def moveCerca(fish, vecinos):
-    if len(vecinos) > 1:
-
-        avgX = 0
-        avgY = 0
-
-        for boid in vecinos:
-
-            if pezx == velx and pezy == vely:
-                continue
-
-            avgX += (velx - pezx)
-            avgY += (vely - pezy)
-
-            avgX /= len(vecinos)
-            avgY /= len(vecinos)
-
-
-            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
-
-            veloX -= (largoX / 100)
-            veloY -= (largoY / 100)# COHESION
-
+#   Primero:  tratas de comparar la posicionx con la velocidad x ??
+#           y tratas de comparar la posiciony con la velocidad y ??
+#           si es asi usa las funciones que creamos el otro dia posX(pezcesillo)
+#   Segundo: estas variables de donde salieron? crealas primero
+#            if pezx == velx and pezy == vely:
+#                continue
+#            avgX += (velx - pezx)
+#            avgY += (vely - pezy)
+#            avgX /= len(vecinos)
+#           avgY /= len(vecinos)
+#            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
+#            veloX -= (largoX / 100)
+#            veloY -= (largoY / 100)# COHESION
+#   Tercero:  NO SABES QUE SUCEDE?.... crea codigo por partes
+#           si quieres crear una funcion entera de la nada...  Uffff, dificil
+#           primero crea funciones de unas pocas lineas y que haga, una... sola... cosa...
+#           prueba que funciona....sigue creando
+#           hasta que agarres el ritmo
+def moveCerca(pez, vecinos):
+    logPez(pez)
+    if len(vecinos) > 1: # todo esto se va a hacer si se cumple la condicion 
+        avgX = 0    # creaste una variable llamada avgX y la inicializaste en 0
+        avgY = 0    # creaste una variable llamada avgY y la inicializaste en 0
+        for otroPez in vecinos:
+            logPez(pez)
+            logPez(otroPez)
+#            if pezx == velx and pezy == vely:
+#                continue
+#            avgX += (velx - pezx)
+#            avgY += (vely - pezy)
+#            avgX /= len(vecinos)
+#           avgY /= len(vecinos)
+#            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
+#            veloX -= (largoX / 100)
+#            veloY -= (largoY / 100)# COHESION
     return fish
 
