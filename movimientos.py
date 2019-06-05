@@ -6,12 +6,16 @@ def mover(pez, MAX_SPEED  = 10):
     pez[0][1] = posY(pez) + velY(pez)
     return pez
 
+
+
 def corregir(pecesillo, ancho, alto, border=25):
     if (posX(pecesillo) > ancho):
         pecesillo[0][0] = 0
-    if (posY(pecesillo) > alto):
+    elif (posY(pecesillo) > alto):
         pecesillo[0][1] = 0
     return pecesillo
+
+
 
 def vecindad(pez_i, boids, max_distance):
     pez = boids[pez_i]
@@ -27,40 +31,44 @@ def vecindad(pez_i, boids, max_distance):
     return vecinos
 
 
-#   Primero:  tratas de comparar la posicionx con la velocidad x ??
-#           y tratas de comparar la posiciony con la velocidad y ??
-#           si es asi usa las funciones que creamos el otro dia posX(pezcesillo)
-#   Segundo: estas variables de donde salieron? crealas primero
-#            if pezx == velx and pezy == vely:
-#                continue
-#            avgX += (velx - pezx)
-#            avgY += (vely - pezy)
-#            avgX /= len(vecinos)
-#           avgY /= len(vecinos)
-#            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
-#            veloX -= (largoX / 100)
-#            veloY -= (largoY / 100)# COHESION
-#   Tercero:  NO SABES QUE SUCEDE?.... crea codigo por partes
-#           si quieres crear una funcion entera de la nada...  Uffff, dificil
-#           primero crea funciones de unas pocas lineas y que haga, una... sola... cosa...
-#           prueba que funciona....sigue creando
-#           hasta que agarres el ritmo
-def moveCerca(pez, vecinos):
-    logPez(pez)
-    if len(vecinos) > 1: # todo esto se va a hacer si se cumple la condicion 
-        avgX = 0    # creaste una variable llamada avgX y la inicializaste en 0
-        avgY = 0    # creaste una variable llamada avgY y la inicializaste en 0
-        for otroPez in vecinos:
-            logPez(pez)
-            logPez(otroPez)
-#            if pezx == velx and pezy == vely:
-#                continue
-#            avgX += (velx - pezx)
-#            avgY += (vely - pezy)
-#            avgX /= len(vecinos)
-#           avgY /= len(vecinos)
-#            vecinos = math.sqrt((largoX * largoX) + (largoY * largoY)) * -1.0
-#            veloX -= (largoX / 100)
-#            veloY -= (largoY / 100)# COHESION
-    return fish
+
+def moveCerca(pez, vecindad):
+    #if len(vecindad) < 1:
+    #    return vecindad
+    #promdistX = 0
+    #promdistY = 0
+    #if boid in boids
+    return pez
+
+
+
+def moveLejos(pez, vecinos, dist_min):
+    if len(vecindad) > 0:
+        return vecindad
+    distanciaX = 0
+    distanciaY = 0
+    pezcerca = 0
+    for i in vecindades:
+
+        if distancia < dis_min:
+            pezcerca += 1
+            difx = (posX-pez)
+            dify = (posY-pez)
+
+            if difx >= 0:
+                difx = math.sqrt(dist_min) - difx
+            elif difx <= 0:
+                dify = -math.sqrt(dist_min) - difx
+            if dify >= 0:
+                dify = math.sqrt(dist_min) - dify
+            elif dify <= 0:
+                dify = -math.sqrt(dist_min) - dify
+
+            distanciaX += difx
+            distanciaY += dify
+
+    if pezcerca == 0:
+            return pezcerca
+
+
 
