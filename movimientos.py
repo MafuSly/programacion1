@@ -1,7 +1,11 @@
 from logger import *
 import random
-def mover(pez, MAX_SPEED  = 10):
+def mover(pez, MAX_SPEED):
     # TODO ver que hacer con la velocidad ?
+    x_sup = posX(pez) + MAX_SPEED
+    x_inf = posX(pez) - MAX_SPEED
+    y_sup = posY(pez) + MAX_SPEED
+    y_inf = posY(pez) - MAX_SPEED
     pez[0][0] = posX(pez) + velX(pez)
     pez[0][1] = posY(pez) + velY(pez)
     return pez
@@ -17,12 +21,12 @@ def corregir(pecesillo, ancho, alto, border=25):
 
 
 
-def vecindad(pez_i, boids, max_distance):
+def vecindad(pez_i, boids, MAX_DISTANCE):
     pez = boids[pez_i]
-    x_sup = posX(pez) + max_distance
-    x_inf = posX(pez) - max_distance
-    y_sup = posY(pez) + max_distance
-    y_inf = posY(pez) - max_distance
+    x_sup = posX(pez) + MAX_DISTANCE
+    x_inf = posX(pez) - MAX_DISTANCE
+    y_sup = posY(pez) + MAX_DISTANCE
+    y_inf = posY(pez) - MAX_DISTANCE
     vecinos = []
     for otroPez in boids:
         if(otroPez != pez):
@@ -42,7 +46,7 @@ def moveCerca(pez, vecindad):
 
 
 
-def moveLejos(pez, vecinos, dist_min):
+def moveLejos(pez, vecindad, min_dist):
     if len(vecindad) > 0:
         return vecindad
     distanciaX = 0
@@ -50,25 +54,41 @@ def moveLejos(pez, vecinos, dist_min):
     pezcerca = 0
     for i in vecindades:
 
-        if distancia < dis_min:
+        if distancia < min_dist:
             pezcerca += 1
-            difx = (posX-pez)
-            dify = (posY-pez)
+            difx = (posX - pez)
+            dify = (posY - pez)
 
             if difx >= 0:
-                difx = math.sqrt(dist_min) - difx
+                difx = math.sqrt(dist_min)**0.5 - difx
             elif difx <= 0:
-                dify = -math.sqrt(dist_min) - difx
+                dify = -math.sqrt(dist_min)**0.5 - difx
             if dify >= 0:
-                dify = math.sqrt(dist_min) - dify
+                dify = math.sqrt(dist_min)**0.5 - dify
             elif dify <= 0:
-                dify = -math.sqrt(dist_min) - dify
+                dify = -math.sqrt(dist_min)**0.5 - dify
 
             distanciaX += difx
             distanciaY += dify
 
-    if pezcerca == 0:
-            return pezcerca
+    if pezcerca != 0:
+        return pezcerca
+
+    pvelozx = pvelozx / len(vecindad)
+    pvelozy = pvelozy / len(vecindad)
+
+    return pezcerca
+
+
+
+def moveWith(pez, vecindad):  # ALINEAMIENTO
+    for v in vecindad:
+        x = pvelozx
+        y = pvelozy
+    x = x/len(vecindad)
+    y = y/len(vecindad)
+
+    return pez
 
 
 
